@@ -9,7 +9,7 @@
 /* =Theme customization starts here
 ------------------------------------------------------- */
 body.login div#login h1 a {
-	background-image: url("/wp-content/themes/swc-website/wordpress-logo.png");
+	background-image: url("/wp-content/themes/swc-website/login-logo.png");
 }
 
 body.login {
