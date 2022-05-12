@@ -41,19 +41,20 @@ function et_get_footer_credits() {
   return et_get_safe_localization( sprintf( $credits_format, $footer_credits, 'div' ) );
 }
 
+add_filter('get_the_excerpt', 'do_shortcode');
+
 /**
  * Gravity Wiz // Gravity Forms // Content Template for Post Excerpt Field
  *
  * Gravity Forms does not currently offer a "Content Template" option for the 
- * Excerpt field. This is a simple snippet that allows you to create
+ * Exceprt field. This is a simple snippet that allows you to create
  */
 // update "433" to the ID of your form
-
 add_filter( 'gform_post_data_1', 'gw_post_excerpt_content_template_1', 10, 3 );
 function gw_post_excerpt_content_template_1( $post_data, $form, $entry ) {
 
 	// modify this to include whatever merge tags and words you'd like included in the excerpt
-	$excerpt_template = '<div class="row-one">><a href="{Company website:14}"><span class="company-name">{Company name:12}</span></a><a href="https://twitter.com/{Company twitter:15}"><span class="company-twitter">{Company twitter:15}</span></a></div><div class="row-two"><span class="job-location">{Job location:3}</span><span class="job-type">{Job type:5}</span></div>';
+	$excerpt_template = '[pods template="Jobs excerpt"][/pods]';
 
 	$post_data['post_excerpt'] = GFCommon::replace_variables( $excerpt_template, $form, $entry );
 
